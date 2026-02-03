@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Open Sans', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #212121;
+  background-color: #ffffff;
+
+  /* Brand Colors from Screenshots */
+  --brand-yellow: #ffe600;
+  /* Vivid Yellow */
+  --brand-green: #50b848;
+  /* Vivid Green */
+  --brand-black: #1a1a1a;
+  --brand-grey: #f5f5f5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  /* Prevent font scaling in landscape on iOS */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll on mobile */
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Custom Utilities for the ZigZag/Diagonal Design */
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.clip-zigzag-right {
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--brand-black);
+}
+
+.font-serif-headline {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Pattern Backgrounds */
+.zigzag-pattern {
+  background-color: #e5e5e5;
+  background-image: linear-gradient(135deg, #ffffff 25%, transparent 25%),
+    linear-gradient(225deg, #ffffff 25%, transparent 25%),
+    linear-gradient(45deg, #ffffff 25%, transparent 25%),
+    linear-gradient(315deg, #ffffff 25%, transparent 25%);
+  background-position: 10px 0, 10px 0, 0 0, 0 0;
+  background-size: 20px 20px;
+  background-repeat: repeat;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Mobile Touch Optimizations */
+@media (max-width: 640px) {
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+    /* Prevent zoom on focus iOS */
+  }
+}
