@@ -81,16 +81,7 @@ const Navbar = () => {
             className="flex flex-col leading-tight"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-<<<<<<< HEAD
             <img src={DeosLogo} alt="DEOS Logo" className="h-25 w-auto object-contain" />
-=======
-            <span className="text-xl md:text-2xl font-bold text-[#1a1a1a]">
-              Digital Exposure
-            </span>
-            <span className="text-[10px] tracking-[0.2em] uppercase text-gray-500">
-              Online Services
-            </span>
->>>>>>> 20a7095c7911498f897bed2bcd82590dbb229567
           </Link>
 
           {/* Desktop Nav */}
