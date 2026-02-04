@@ -81,10 +81,10 @@ const Navbar = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <span className="text-xl md:text-2xl font-bold text-[#1a1a1a]">
-              DEOS<span className="text-[10px] align-top ml-0.5">TM</span>
+              Digital Exposure
             </span>
             <span className="text-[10px] tracking-[0.2em] uppercase text-gray-500">
-              Social
+              Online Service
             </span>
           </Link>
 
