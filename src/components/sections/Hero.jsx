@@ -1,4 +1,5 @@
 import React from 'react';
+import DeosLogo from '../../assets/DEOS.svg';
 
 const Hero = () => {
     return (
@@ -43,7 +44,7 @@ const Hero = () => {
                 {/* Bee Icon - Bottom Left */}
                 <div className="absolute left-0 bottom-[-40px] md:bottom-[-80px] z-20">
                     <div className="w-16 h-16 md:w-20 md:h-20 bg-white border-2 border-black rounded-full flex items-center justify-center shadow-lg">
-                        <span className="text-2xl md:text-4xl">🐝</span>
+                        <span className="text-2xl md:text-4xl"><img src={DeosLogo} alt="DEOS" className="h-15 w-15 md:h-30 md:w-30 object-contain" /></span>
                     </div>
                 </div>
 

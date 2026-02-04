@@ -2,6 +2,44 @@ import React from 'react';
 import { ArrowRight, Twitter, Facebook, Instagram, Linkedin, MessageCircle, Share2, MousePointer } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Import Images
+import seoBg from '../../assets/File2/SEO1.jpg';
+import contentBg from '../../assets/File2/content_marketing2.jpg';
+import ppcBg from '../../assets/File2/PPC3.jpg';
+import viewAllBg from '../../assets/File2/view-all-service4.jpg';
+
+const serviceItems = [
+    {
+        title: 'SEO',
+        subtitle: 'Search Engine Optimization',
+        bgImage: seoBg,
+        icon: MousePointer,
+        iconPosition: '-right-10 -top-10', // Tailwind classes for positioning
+        iconRotate: 'rotate-12',
+        overlayColor: 'bg-[#ffe600]/80', // Fallback or overlay if needed, currently using image
+        textColor: 'text-white' // Assuming white text is better on images, adjust based on image brightness
+    },
+    {
+        title: 'Content',
+        subtitle: 'Marketing Strategy',
+        bgImage: contentBg,
+        icon: MessageCircle,
+        iconPosition: '-right-10 -bottom-10',
+        iconRotate: 'rotate-0',
+        textColor: 'text-black', // Adjust based on image
+        isBordered: true
+    },
+    {
+        title: 'PPC',
+        subtitle: 'Pay Per Click',
+        bgImage: ppcBg,
+        icon: Share2,
+        iconPosition: '-left-10 -bottom-10',
+        iconRotate: 'rotate-0',
+        textColor: 'text-white'
+    }
+];
+
 const VisualGrid = () => {
     return (
         <section className="w-full">
@@ -42,49 +80,44 @@ const VisualGrid = () => {
                 {/* Right Grid - 2x2 Layout */}
                 <div className="grid grid-cols-1 md:grid-cols-2">
 
-                    {/* Block 1 */}
-                    <div className="bg-[#ffe600] h-[300px] md:h-[400px] p-10 flex flex-col justify-between group hover:bg-[#ffea00] transition-colors relative overflow-hidden">
-                        <div className="absolute -right-10 -top-10 opacity-20 transform rotate-12 transition-transform group-hover:rotate-45">
-                            <MousePointer size={150} />
-                        </div>
-                        <div className="relative z-10">
-                            <h3 className="text-3xl font-bold text-black mb-2">SEO</h3>
-                            <p className="text-black font-medium">Search Engine Optimization</p>
-                        </div>
-                        <ArrowRight className="text-black w-10 h-10 transform group-hover:translate-x-2 transition-transform" />
-                    </div>
+                    {serviceItems.map((item, index) => (
+                        <div 
+                            key={index}
+                            className="bg-cover bg-center h-[300px] md:h-[400px] p-10 flex flex-col justify-between group relative overflow-hidden transition-transform duration-500 hover:scale-[1.02] z-0 hover:z-10"
+                            style={{ backgroundImage: `url(${item.bgImage})` }}
+                        >
+                            {/* Overlay for better text readability */}
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors z-0"></div>
 
-                    {/* Block 2 */}
-                    <div className="bg-white h-[300px] md:h-[400px] p-10 flex flex-col justify-between border-b border-r border-gray-100 group relative overflow-hidden">
-                        <div className="absolute -right-10 -bottom-10 opacity-10 text-gray-500">
-                            <MessageCircle size={150} />
+                            <div className={`absolute ${item.iconPosition} opacity-20 transform ${item.iconRotate} transition-transform group-hover:rotate-45 ${item.textColor} z-10`}>
+                                <item.icon size={150} />
+                            </div>
+                            
+                            <div className="relative z-10">
+                                <h3 className={`text-3xl font-bold ${item.textColor} mb-2 drop-shadow-md`}>{item.title}</h3>
+                                <p className={`${item.textColor} font-medium drop-shadow-sm`}>{item.subtitle}</p>
+                            </div>
+                            
+                            <ArrowRight className={`${item.textColor} w-10 h-10 transform group-hover:translate-x-2 transition-transform z-10`} />
                         </div>
-                        <div className="relative z-10">
-                            <h3 className="text-3xl font-bold text-black mb-2">Content</h3>
-                            <p className="text-gray-500 font-medium">Marketing Strategy</p>
-                        </div>
-                        <ArrowRight className="text-black w-10 h-10 transform group-hover:translate-x-2 transition-transform" />
-                    </div>
+                    ))}
 
-                    {/* Block 3 */}
-                    <div className="bg-[#50b848] h-[300px] md:h-[400px] p-10 flex flex-col justify-between group relative overflow-hidden">
-                        <div className="absolute -left-10 -bottom-10 opacity-20 text-black">
-                            <Share2 size={150} />
-                        </div>
-                        <div className="relative z-10">
-                            <h3 className="text-3xl font-bold text-white mb-2">PPC</h3>
-                            <p className="text-white font-medium">Pay Per Click</p>
-                        </div>
-                        <ArrowRight className="text-white w-10 h-10 transform group-hover:translate-x-2 transition-transform" />
-                    </div>
+                    {/* View All Services Block */}
+                    <Link 
+                        to="/services"
+                        className="bg-cover bg-center h-[300px] md:h-[400px] p-10 flex flex-col justify-center items-center text-center group cursor-pointer relative overflow-hidden"
+                        style={{ backgroundImage: `url(${viewAllBg})` }}
+                    >
+                         {/* Overlay */}
+                         <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors z-0"></div>
 
-                    {/* Block 4 */}
-                    <div className="bg-[#f5f5f5] h-[300px] md:h-[400px] p-10 flex flex-col justify-center items-center text-center group cursor-pointer hover:bg-gray-200 transition-colors">
-                        <div className="w-20 h-20 rounded-full border-4 border-black flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <ArrowRight size={32} />
+                        <div className="relative z-10">
+                            <div className="w-20 h-20 rounded-full border-4 border-white flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
+                                <ArrowRight size={32} className="text-white"/>
+                            </div>
+                            <h3 className="text-xl font-bold uppercase tracking-widest text-white drop-shadow-md">View All<br />Services</h3>
                         </div>
-                        <h3 className="text-xl font-bold uppercase tracking-widest">View All<br />Services</h3>
-                    </div>
+                    </Link>
 
                 </div>
             </div>

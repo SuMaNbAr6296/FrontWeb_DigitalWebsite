@@ -13,8 +13,8 @@ const Footer = () => {
                     {/* Column 1: Brand & About */}
                     <div className="flex flex-col items-start">
                         <Link to="/" className="text-3xl font-bold mb-6 text-white tracking-wide block hover:opacity-80 transition-opacity">
-                            DEOS<span className="text-sm align-top">TM</span><br />
-                            <span className="text-sm tracking-[0.3em] text-gray-400 uppercase font-bold">SOCIAL</span>
+                            Digital Exposure<br />
+                            <span className="text-sm tracking-[0.3em] text-gray-400 uppercase font-bold">Online Services</span>
                         </Link>
                         <p className="text-gray-400 text-sm mb-8 leading-relaxed font-medium max-w-sm">
                             We are a full service creative digital marketing agency based in Kolkata. We combine our years of experience in creating integrated marketing solutions with creative output.
