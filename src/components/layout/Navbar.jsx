@@ -84,7 +84,7 @@ const Navbar = () => {
               Digital Exposure
             </span>
             <span className="text-[10px] tracking-[0.2em] uppercase text-gray-500">
-              Online Service
+              Online Services
             </span>
           </Link>
 
